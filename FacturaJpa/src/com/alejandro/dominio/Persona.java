@@ -7,6 +7,7 @@ package com.alejandro.dominio;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,6 +18,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 
 /**
  *
@@ -42,6 +44,8 @@ public class Persona implements Serializable {
 
     @Column(nullable = false, columnDefinition = "varchar(7)")
     private String telefono;
+        
+    
     //el atributo persona no se relaciona con esta clase si no con la clase Persona creada 
     @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL, orphanRemoval = true)
     private Usuario usuario;

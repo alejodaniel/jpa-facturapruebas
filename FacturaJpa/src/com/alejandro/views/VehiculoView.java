@@ -5,27 +5,31 @@
  */
 package com.alejandro.views;
 
-import com.alejandro.DAO.UsuarioDao;
 import com.alejandro.DAO.VehiculoDao;
 import com.alejandro.dominio.Persona;
 import com.alejandro.dominio.Vehiculo;
-import java.awt.Frame;
+import com.alejandro.ucc.Vehiculoucc;
 import javax.swing.JOptionPane;
 
 public class VehiculoView extends javax.swing.JDialog {
 
     private Persona persona;
+    private Vehiculo vehiculo;
 
 //    private Vehiculo vehiculo;
-    public VehiculoView(java.awt.Frame parent, boolean modal, Vehiculo vehiculo, Persona person) {
+    public VehiculoView(java.awt.Frame parent, boolean modal, Vehiculo carro, Persona person) {
         super(parent, modal);
         initComponents();
-        if (vehiculo != null) {
-            persona = vehiculo.getPersona();
+
+        if (carro != null) {
+            persona = carro.getPersona();
+            vehiculo = carro;
+//            cargarVehiculo();
+
         } else {
             persona = person;
-        }
 
+        }
         cargarPersonaIngresado();
     }
 
@@ -34,6 +38,12 @@ public class VehiculoView extends javax.swing.JDialog {
             txttraernombre.setText(persona.getNombre());
             txttraerapellido.setText(persona.getApellido());
         }
+    }
+
+    public void cargarVehiculo() {
+        txtmarca.setText(vehiculo.getMarca());
+        txtcolor.setText(vehiculo.getColor());
+        txtyear.setText(vehiculo.getAño());
 
     }
 
@@ -211,7 +221,7 @@ public class VehiculoView extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   
+
     public boolean validarIngreso() {
         if (txtmarca.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Llene el campo marca");
@@ -231,21 +241,43 @@ public class VehiculoView extends javax.swing.JDialog {
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
         if (validarIngreso()) {
-            Vehiculo v = new Vehiculo();
-            v.setMarca(txtmarca.getText());
-            v.setColor(txtcolor.getText());
-            v.setAño(txtyear.getText());
-
-            v.setPersona(persona);
-            persona.getVehiculos().add(v);
-
-            VehiculoDao vd = new VehiculoDao(v);
-            int guardar = JOptionPane.showConfirmDialog(this, "Desea guardar los cambios ?", "ADvertencia", JOptionPane.YES_NO_OPTION);
-            if (guardar == JOptionPane.YES_OPTION) {
-                vd.persist();
+            Vehiculoucc vd = new Vehiculoucc();
+            if (vehiculo != null) {
+                vehiculo.setMarca(txtmarca.getText());
+                vehiculo.setColor(txtcolor.getText());
+                vehiculo.setAño(txtyear.getText());
+//                vd = new VehiculoDao(vehiculo);
+                boolean estado = vd.editarVehiculo(vehiculo);
+                int editar = JOptionPane.showConfirmDialog(this, "Desea guardar los cambios ?", "Advertencia", JOptionPane.YES_NO_OPTION);
+                if (editar == JOptionPane.YES_OPTION) {
+                    if (estado == true) {
+                        JOptionPane.showMessageDialog(this, "Se edito correctamente");
+                        dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Error al editar");
+                    }
+                }
             } else {
+                Vehiculo v = new Vehiculo();
+                v.setMarca(txtmarca.getText());
+                v.setColor(txtcolor.getText());
+                v.setAño(txtyear.getText());
+                
+                v.setPersona(persona);
+                persona.getVehiculos().add(v);
 
+                boolean almacenar = vd.guardarVehiculo(v);
+                int guardar = JOptionPane.showConfirmDialog(this, "Desea guardar los cambios ?", "Advertencia", JOptionPane.YES_NO_OPTION);
+                if (guardar == JOptionPane.YES_OPTION) {
+                    if (almacenar == true) {
+                        JOptionPane.showMessageDialog(this, "Se guardo correctamente");
+                        dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Error al guardar");
+                    }
+                }
             }
+
         }
     }//GEN-LAST:event_btnguardarActionPerformed
 

@@ -1,8 +1,10 @@
 package com.alejandro.views;
 
-import com.alejandro.DAO.UsuarioDao;
 import com.alejandro.dominio.Usuario;
+import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
+
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 public class PrincipalView extends javax.swing.JFrame {
 
@@ -16,15 +18,15 @@ public class PrincipalView extends javax.swing.JFrame {
             usuario = user;
         }
 
-//        System.out.println(usuario.getPersona().getNombre());
-        cargarUsuario();
+        System.out.println(usuario.getPersona().getNombre());
+//        cargarUsuario();
     }
 
-    public void cargarUsuario() {
-        if (usuario != null) {
-            txtobteneruser.setText(usuario.getPersona().getNombre());
-        }
-    }
+//    public void cargarUsuario() {
+//        if (usuario != null) {
+//            txtobteneruser.setText(usuario.getPersona().getNombre());
+//        }
+//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -43,6 +45,19 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        item1 = new javax.swing.JMenuItem();
+        item2 = new javax.swing.JMenuItem();
+        item3 = new javax.swing.JMenuItem();
+        item4 = new javax.swing.JMenuItem();
+        item5 = new javax.swing.JMenuItem();
+        item7 = new javax.swing.JMenuItem();
+        item8 = new javax.swing.JMenuItem();
+        item9 = new javax.swing.JMenuItem();
+        item10 = new javax.swing.JMenuItem();
+        item11 = new javax.swing.JMenuItem();
+        item12 = new javax.swing.JMenuItem();
+        item13 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -156,6 +171,131 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu6.setText("TEMAS");
+        jMenu6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+
+        item1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.ALT_MASK));
+        item1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        item1.setText("BLACK EYE");
+        item1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item1ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(item1);
+
+        item2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, java.awt.event.InputEvent.ALT_MASK));
+        item2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        item2.setText("BLACK MOON");
+        item2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item2ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(item2);
+
+        item3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, java.awt.event.InputEvent.ALT_MASK));
+        item3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        item3.setText("BLUE ICE");
+        item3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item3ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(item3);
+
+        item4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        item4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        item4.setText("BLUE MOON");
+        item4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item4ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(item4);
+
+        item5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, java.awt.event.InputEvent.ALT_MASK));
+        item5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        item5.setText("BLUE STEEL");
+        item5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item5ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(item5);
+
+        item7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, java.awt.event.InputEvent.ALT_MASK));
+        item7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        item7.setText("GREEN DREAM");
+        item7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item7ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(item7);
+
+        item8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F7, java.awt.event.InputEvent.ALT_MASK));
+        item8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        item8.setText("MAUVE METALLIC");
+        item8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item8ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(item8);
+
+        item9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F8, java.awt.event.InputEvent.ALT_MASK));
+        item9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        item9.setText("ORANGE METALLIC");
+        item9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item9ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(item9);
+
+        item10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F9, java.awt.event.InputEvent.ALT_MASK));
+        item10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        item10.setText("SILVER MOON");
+        item10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item10ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(item10);
+
+        item11.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F10, java.awt.event.InputEvent.ALT_MASK));
+        item11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        item11.setText("SIMPLE 2D");
+        item11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item11ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(item11);
+
+        item12.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F11, java.awt.event.InputEvent.ALT_MASK));
+        item12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        item12.setText("SKY METALLIC");
+        item12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item12ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(item12);
+
+        item13.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F12, java.awt.event.InputEvent.ALT_MASK));
+        item13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        item13.setText("WHITE VISION");
+        item13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                item13ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(item13);
+
+        jMenuBar1.add(jMenu6);
+
         jMenu2.setText("ACERCA DE ");
         jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jMenuBar1.add(jMenu2);
@@ -206,7 +346,7 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jPanel1ComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jPanel1ComponentRemoved
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jPanel1ComponentRemoved
 
     private void txtobteneruserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtobteneruserKeyReleased
@@ -214,13 +354,84 @@ public class PrincipalView extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtobteneruserKeyReleased
 
+    private void item1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item1ActionPerformed
+        try {
+            UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
+         
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error");
+
+        }
+        PrincipalView pv = new PrincipalView(usuario);
+        pv.setVisible(true);
+
+
+    }//GEN-LAST:event_item1ActionPerformed
+
+    private void item2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item2ActionPerformed
+
+    }//GEN-LAST:event_item2ActionPerformed
+
+    private void item3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item3ActionPerformed
+
+    }//GEN-LAST:event_item3ActionPerformed
+
+    private void item4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item4ActionPerformed
+
+    }//GEN-LAST:event_item4ActionPerformed
+
+    private void item5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item5ActionPerformed
+
+    }//GEN-LAST:event_item5ActionPerformed
+
+    private void item7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item7ActionPerformed
+
+    }//GEN-LAST:event_item7ActionPerformed
+
+    private void item8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item8ActionPerformed
+
+    }//GEN-LAST:event_item8ActionPerformed
+
+    private void item9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item9ActionPerformed
+
+    }//GEN-LAST:event_item9ActionPerformed
+
+    private void item10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item10ActionPerformed
+
+    }//GEN-LAST:event_item10ActionPerformed
+
+    private void item11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item11ActionPerformed
+
+    }//GEN-LAST:event_item11ActionPerformed
+
+    private void item12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item12ActionPerformed
+
+    }//GEN-LAST:event_item12ActionPerformed
+
+    private void item13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item13ActionPerformed
+
+    }//GEN-LAST:event_item13ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem item1;
+    private javax.swing.JMenuItem item10;
+    private javax.swing.JMenuItem item11;
+    private javax.swing.JMenuItem item12;
+    private javax.swing.JMenuItem item13;
+    private javax.swing.JMenuItem item2;
+    private javax.swing.JMenuItem item3;
+    private javax.swing.JMenuItem item4;
+    private javax.swing.JMenuItem item5;
+    private javax.swing.JMenuItem item7;
+    private javax.swing.JMenuItem item8;
+    private javax.swing.JMenuItem item9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;

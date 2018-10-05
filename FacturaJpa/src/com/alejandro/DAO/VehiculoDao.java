@@ -1,5 +1,6 @@
 package com.alejandro.DAO;
 
+import com.alejandro.dominio.Persona;
 import com.alejandro.dominio.Vehiculo;
 import java.util.List;
 import javax.persistence.Query;
@@ -26,4 +27,6 @@ public class VehiculoDao extends DAOAbstract<Vehiculo> {
         return query.getResultList();
 
     }
+
+
 }

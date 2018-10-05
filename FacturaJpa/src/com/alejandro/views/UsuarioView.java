@@ -30,6 +30,7 @@ public class UsuarioView extends javax.swing.JDialog {
 
         } else {
             persona = person;
+       
 
         }
         cargarPersonaIngresado();
@@ -37,11 +38,6 @@ public class UsuarioView extends javax.swing.JDialog {
     }
 
     public void cargarUsuario() {
-        PersonaDao personadao = new PersonaDao(null);
-        Persona p = personadao.getPersonaById(usuario.getIdUsuario());
-        txtpersona.setText(p.getNombre());
-        txtapellidoa.setText(p.getApellido());
-
         txtnombreusuario.setText(usuario.getNombreUsuario());
         txtcontrasena.setText(usuario.getPassword());
 
@@ -54,13 +50,12 @@ public class UsuarioView extends javax.swing.JDialog {
         }
     }
 
-    public void cargarUser() {
-        if (usuario != null) {
-            txtpersona.setText(usuario.getNombreUsuario());
-
-        }
-    }
-
+//    public void cargarUser() {
+//        if (usuario != null) {
+//            txtpersona.setText(usuario.getNombreUsuario());
+//
+//        }
+//    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

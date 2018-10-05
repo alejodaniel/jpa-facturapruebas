@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e8502490-c101-4a43-8be1-f7f4c4469a9f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="idPersona" class="java.lang.Integer"/>
+	<parameter name="nombrePersona" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[Select MARCA,COLOR,AÑO from Vehiculo where Persona_idPersona = $P{idPersona}]]>
+	</queryString>
+	<field name="MARCA" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="COLOR" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="AÑO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="175" y="0" width="160" height="20" backcolor="#00FFCC" uuid="30e8b92a-8e11-42fe-bc11-a6e8c0c89e3e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[REPORTE VEHICULOS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="20" width="87" height="20" uuid="cd3cee68-e6e1-420d-860c-f8ff2837776b"/>
+				<textFieldExpression><![CDATA[$P{idPersona}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="411" y="20" width="44" height="20" uuid="75ed134a-c05b-4124-ab15-4ef9c3ba7993"/>
+				<text><![CDATA[Numero:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="103" y="0" width="100" height="20" uuid="f3886575-0645-42cc-a96b-8eb989e3ce1c"/>
+				<text><![CDATA[PROPIETARIO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="224" y="0" width="100" height="20" uuid="82cb18d3-c5f0-4934-9d7c-112084121441"/>
+				<textFieldExpression><![CDATA[$P{nombrePersona}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="81" y="0" width="62" height="20" uuid="fd56b3ad-482c-4ada-abfa-a8dda4ea0210"/>
+				<text><![CDATA[MARCA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="0" width="56" height="20" uuid="47e831c4-8b89-4324-9e60-93235f6e48f7"/>
+				<text><![CDATA[COLOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="0" width="53" height="20" uuid="7d51f915-ef7a-4ef4-9d15-d5108db202a1"/>
+				<text><![CDATA[AÑO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="85" y="0" width="62" height="20" uuid="710f8aba-4087-4491-b0d3-a625de56ed0f"/>
+				<textFieldExpression><![CDATA[$F{MARCA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="207" y="0" width="68" height="20" uuid="d9d7479f-0367-4983-914c-943edca872f5"/>
+				<textFieldExpression><![CDATA[$F{COLOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="308" y="0" width="57" height="20" uuid="c9bd210c-50c5-4150-ae81-5143463bf5b6"/>
+				<textFieldExpression><![CDATA[$F{AÑO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

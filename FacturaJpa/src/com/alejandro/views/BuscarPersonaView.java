@@ -2,18 +2,15 @@ package com.alejandro.views;
 
 import com.alejandro.DAO.PersonaDao;
 import com.alejandro.dominio.Persona;
+import com.alejandro.reportes.Report;
 import com.alejandro.table.PersonaTable;
 import java.awt.Frame;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Alejandro
- */
 public class BuscarPersonaView extends javax.swing.JDialog {
 
-  
+   
 
     public BuscarPersonaView(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -37,6 +34,7 @@ public class BuscarPersonaView extends javax.swing.JDialog {
         btneditar = new javax.swing.JButton();
         nuevoususario = new javax.swing.JButton();
         btnvehiculo = new javax.swing.JButton();
+        printButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("BUSCAR PERSONA");
@@ -108,6 +106,13 @@ public class BuscarPersonaView extends javax.swing.JDialog {
             }
         });
 
+        printButton.setText("IMPRIMIR");
+        printButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -117,13 +122,15 @@ public class BuscarPersonaView extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(nuevoususario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnvehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(printButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btneditar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btncerrar))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
                 .addGap(19, 19, 19))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
@@ -140,14 +147,15 @@ public class BuscarPersonaView extends javax.swing.JDialog {
                     .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnvehiculo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(printButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btncerrar)
                         .addComponent(btneditar)
-                        .addComponent(nuevoususario)))
+                        .addComponent(nuevoususario)
+                        .addComponent(btnvehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(20, 20, 20))
         );
 
@@ -233,6 +241,19 @@ public class BuscarPersonaView extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnvehiculoActionPerformed
 
+    private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
+        try {
+            PersonaTable personatable = (PersonaTable) tablaPersonas.getModel();
+            //elegir cual esta seleccionado en la tabla
+            Persona persona = personatable.getFilas().get(tablaPersonas.getSelectedRow());
+            Report report = new Report();
+            report.imprimir(persona);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Escriba en la opcion buscar y seleccione a la persona q va a agregar un nuevo vehiculo");
+        }
+    }//GEN-LAST:event_printButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncerrar;
@@ -242,6 +263,7 @@ public class BuscarPersonaView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton nuevoususario;
+    private javax.swing.JButton printButton;
     private javax.swing.JTable tablaPersonas;
     private javax.swing.JTextField txtbuscar;
     // End of variables declaration//GEN-END:variables
